@@ -7,13 +7,13 @@ oracle_con = cx_Oracle.connect("bi/bi@172.20.5.103/orclind")
 
 #Volumen
 def json_parser_volumend():
-  query = " select INITCAP(negocio)"
+  query = " select equiva_dashboard_ventas_dist(negocio)"
   query += " , volumen"
   query += " from dashboard_ventas"
   query += " where anocon = SPLITCAD(FUN_CALENDARIO(sysdate),1,'|')"
   query += " and semcon = SPLITCAD(FUN_CALENDARIO(sysdate),3,'|')"
   query += " and distribuidora = 'Mara'"
-  query += " and volumenf > 0"
+  #query += " and volumenf > 0"
   query += " order by 1"
   #print(query)
   conn = oracle_con
@@ -35,7 +35,7 @@ def json_parser_montod():
   query += " where anocon = SPLITCAD(FUN_CALENDARIO(sysdate),1,'|')"
   query += " and semcon = SPLITCAD(FUN_CALENDARIO(sysdate),3,'|')"
   query += " and distribuidora = 'Mara'"
-  query += " and volumenf > 0"
+  #query += " and volumenf > 0"
   query += " order by 1"
   conn = oracle_con
   c = conn.cursor()
@@ -55,7 +55,7 @@ def json_parser_totald():
   query += " where anocon = SPLITCAD(FUN_CALENDARIO(sysdate),1,'|')"
   query += " and semcon = SPLITCAD(FUN_CALENDARIO(sysdate),3,'|')"
   query += " and distribuidora = 'Mara'"
-  query += " and volumenf > 0"
+  #query += " and volumenf > 0"
   conn = oracle_con
   c = conn.cursor()
   c.execute(
@@ -87,13 +87,13 @@ def json_parser_semcon():
 ##########################################################################################################
 #Volumen
 def json_parser_volumenf():
-  query = " select INITCAP(negocio)"
+  query = " select equiva_dashboard_ventas_dist(negocio)"
   query += " , volumenf"
   query += " from dashboard_ventas"
   query += " where anocon = SPLITCAD(FUN_CALENDARIO(sysdate),1,'|')"
   query += " and semcon = SPLITCAD(FUN_CALENDARIO(sysdate),3,'|')"
   query += " and distribuidora = 'Mara'"
-  query += " and volumenf > 0"
+  #query += " and volumenf > 0"
   query += " order by 1"
   print(query)
   conn = oracle_con
@@ -115,7 +115,7 @@ def json_parser_montof():
   query += " where anocon = SPLITCAD(FUN_CALENDARIO(sysdate),1,'|')"
   query += " and semcon = SPLITCAD(FUN_CALENDARIO(sysdate),3,'|')"
   query += " and distribuidora = 'Mara'"
-  query += " and volumenf > 0"
+  #query += " and volumenf > 0"
   query += " order by 1"
   #print(query)
   conn = oracle_con

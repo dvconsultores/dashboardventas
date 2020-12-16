@@ -8,6 +8,8 @@ from . import views_pollovivo, views_aba, views_mascotas, views_lacteos, views_a
 from . import views_distribuidora_acarigua, views_distribuidora_barcelona, views_distribuidora_barquisimeto
 from . import views_distribuidora_bolivar, views_distribuidora_caracas, views_distribuidora_fijo, views_distribuidora_maracaibo
 from . import views_distribuidora_maturin, views_distribuidora_tachira, views_distribuidora_valencia, views_distribuidora_vigia
+from . import views_distribuidora_granjas, views_distribuidora_plantas, views_distribuidora_servifresco, views_distribuidora_corporativo
+from . import views_cump
 
 app_name = 'dashboardventas'
 urlpatterns = [
@@ -88,6 +90,21 @@ urlpatterns = [
     #
     path('dvigia/', views_distribuidora_vigia.index, name='dvigia'),
     path('', views_distribuidora_vigia.index, name='dvigia'),
+    #
+    path('granjas/', views_distribuidora_granjas.index, name='granjas'),
+    path('', views_distribuidora_granjas.index, name='granjas'),
+    #
+    path('plantas/', views_distribuidora_plantas.index, name='plantas'),
+    path('', views_distribuidora_plantas.index, name='plantas'),
+    #
+    path('servifresco/', views_distribuidora_servifresco.index, name='servifresco'),
+    path('', views_distribuidora_servifresco.index, name='servifresco'),
+    #
+    path('corporativo/', views_distribuidora_corporativo.index, name='corporativo'),
+    path('', views_distribuidora_corporativo.index, name='corporativo'),
+    #
+    path('cumplimiento/', views_cump.index, name='cumplimiento'),
+    path('', views_cump.index, name='cumplimiento'),
     ###################Distribuidoras############################################
     path('volumend', views.jsonVtasVolumend, name='volumend'),
     path('montod', views.jsonVtasPreciod, name='montod'),
@@ -372,5 +389,80 @@ urlpatterns = [
     ###################Forecast##################################################
     path('volumenf_dvigia', views_distribuidora_valencia.jsonVtasVolumenf, name='volumenf_dvigia'),
     path('montof_dvigia', views_distribuidora_valencia.jsonVtasMontof, name='montof_dvigia'),
+
+    #############################################################################
+    ##########################GRANJAS############################################
+    #############################################################################
+    ###################Distribuidoras############################################
+    path('volumend_granjas', views_distribuidora_granjas.jsonVtasVolumend, name='volumend_granjas'),
+    path('montod_granjas', views_distribuidora_granjas.jsonVtasPreciod, name='montod_granjas'),
+    path('totald_granjas', views_distribuidora_granjas.jsonVtasTotald, name='totald_granjas'),
+    ###################Forecast##################################################
+    path('volumenf_granjas', views_distribuidora_granjas.jsonVtasVolumenf, name='volumenf_granjas'),
+    path('montof_granjas', views_distribuidora_granjas.jsonVtasMontof, name='montof_granjas'),
+    #############################################################################
+    ##########################PLANTAS############################################
+    #############################################################################
+    ###################Distribuidoras############################################
+    path('volumend_plantas', views_distribuidora_plantas.jsonVtasVolumend, name='volumend_plantas'),
+    path('montod_plantas', views_distribuidora_plantas.jsonVtasPreciod, name='montod_plantas'),
+    path('totald_plantas', views_distribuidora_plantas.jsonVtasTotald, name='totald_plantas'),
+    ###################Forecast##################################################
+    path('volumenf_plantas', views_distribuidora_plantas.jsonVtasVolumenf, name='volumenf_plantas'),
+    path('montof_plantas', views_distribuidora_plantas.jsonVtasMontof, name='montof_plantas'),
+    #############################################################################
+    ##########################SERVIFRESCO############################################
+    #############################################################################
+    ###################Distribuidoras############################################
+    path('volumend_servifresco', views_distribuidora_servifresco.jsonVtasVolumend, name='volumend_servifresco'),
+    path('montod_servifresco', views_distribuidora_servifresco.jsonVtasPreciod, name='montod_servifresco'),
+    path('totald_servifresco', views_distribuidora_servifresco.jsonVtasTotald, name='totald_servifresco'),
+    ###################Forecast##################################################
+    path('volumenf_servifresco', views_distribuidora_servifresco.jsonVtasVolumenf, name='volumenf_servifresco'),
+    path('montof_servifresco', views_distribuidora_servifresco.jsonVtasMontof, name='montof_servifresco'),
+    #############################################################################
+    ##########################CORPORATIVO############################################
+    #############################################################################
+    ###################Distribuidoras############################################
+    path('volumend_corporativo', views_distribuidora_corporativo.jsonVtasVolumend, name='volumend_corporativo'),
+    path('montod_corporativo', views_distribuidora_corporativo.jsonVtasPreciod, name='montod_corporativo'),
+    path('totald_corporativo', views_distribuidora_corporativo.jsonVtasTotald, name='totald_corporativo'),
+    ###################Forecast##################################################
+    path('volumenf_corporativo', views_distribuidora_corporativo.jsonVtasVolumenf, name='volumenf_corporativo'),
+    path('montof_corporativo', views_distribuidora_corporativo.jsonVtasMontof, name='montof_corporativo'),
+    #############################################################################
+    ##########################CUMPLIMIENTO############################################
+    #############################################################################
+    ###################Distribuidoras############################################
+    path('cump', views_cump.jsonCump, name='cump'),
+    path('cump_entero', views_cump.jsonCumpEntero, name='cump_entero'),
+    path('cump_despresado', views_cump.jsonCumpDespresado, name='cump_despresado'),
+    path('cump_filetes', views_cump.jsonCumpFiletes, name='cump_filetes'),
+    path('cump_embutidos', views_cump.jsonCumpEntero, name='cump_embutidos'),
+    path('cump_congelados', views_cump.jsonCumpCongelados, name='cump_congelados'),
+    path('cump_huevos_consumo', views_cump.jsonCumpHuevosConsumo, name='cump_huevos_consumo'),
+    path('cump_pollitos_bb', views_cump.jsonCumpPollitosBB, name='cump_pollitos_bb'),
+    path('cump_pollonas_ponedora', views_cump.jsonCumpPollonaPonedora, name='cump_pollonas_ponedora'),
+    path('cump_pollo_vivo', views_cump.jsonCumpPollonaVivo, name='cump_pollo_vivo'),
+    path('cump_huevo_fertil', views_cump.jsonCumpHuevoFeretil, name='cump_huevo_fertil'),
+    path('cump_aba_comercial', views_cump.jsonCumpAbaComercial, name='cump_aba_comercial'),
+    path('cump_mascotas', views_cump.jsonCumpMascotas, name='cump_mascotas'),
+    path('cump_lacteos', views_cump.jsonCumpLacteos, name='cump_lacteos'),
+    path('cump_aceites', views_cump.jsonCumpAceites, name='cump_aceites'),
+    path('cump_distribuidora_acar', views_cump.jsonDistribuidoraAcar, name='cump_distribuidora_acar'),
+    path('cump_distribuidora_barc', views_cump.jsonDistribuidoraBarc, name='cump_distribuidora_barc'),
+    path('cump_distribuidora_barq', views_cump.jsonDistribuidoraBarq, name='cump_distribuidora_barq'),
+    path('cump_distribuidora_boli', views_cump.jsonDistribuidoraBoli, name='cump_distribuidora_boli'),
+    path('cump_distribuidora_cara', views_cump.jsonDistribuidoraCara, name='cump_distribuidora_cara'),
+    path('cump_distribuidora_fijo', views_cump.jsonDistribuidoraFijo, name='cump_distribuidora_fijo'),
+    path('cump_distribuidora_mara', views_cump.jsonDistribuidoraMara, name='cump_distribuidora_mara'),
+    path('cump_distribuidora_matu', views_cump.jsonDistribuidoraMatu, name='cump_distribuidora_matu'),
+    path('cump_distribuidora_tachira', views_cump.jsonDistribuidoraTachira, name='cump_distribuidora_tachira'),
+    path('cump_distribuidora_vale', views_cump.jsonDistribuidoraVale, name='cump_distribuidora_vale'),
+    path('cump_distribuidora_vigi', views_cump.jsonDistribuidoraVigi, name='cump_distribuidora_vigi'),
+    path('cump_distribuidora_plantas', views_cump.jsonDistribuidoraPlantas, name='cump_distribuidora_plantas'),
+    path('cump_distribuidora_granjas', views_cump.jsonDistribuidoraGranjas, name='cump_distribuidora_granjas'),
+    path('cump_distribuidora_servifresco', views_cump.jsonDistribuidoraServifresco, name='cump_distribuidora_servifresco'),
+    path('cump_distribuidora_corporativo', views_cump.jsonDistribuidoraCorporativo, name='cump_distribuidora_corporativo'),
 ]
 
